@@ -34,3 +34,13 @@ DEFAULT_PAGINATION = 10
 
 # For "Elegant" theme landing page:
 LANDING_PAGE_TITLE = "HKU MFIN7036 Student Blog 2025-2026"
+DIRECT_TEMPLATES = ('index', 'archives', 'categories', 'tags', 'authors', 'search')
+LUNR_LANG = 'en'
+MARKDOWN = {
+    'extensions': ['extra', 'codehilite', 'mdx_math'],
+    'extension_configs': {
+        'mdx_math': {'enable_dollar_delimiter': True},
+        'codehilite': {'guess_lang': False},
+    },
+    'output_format': 'html5',
+}
