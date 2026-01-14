@@ -7,7 +7,7 @@ Tags: NLP, Translation, Data Collection, OCR, Financial Reports, data cleaning, 
 
 By Group "Text Trader"
 
-![Picture showing Powell]({static}/images/image.png)
+![Picture showing Powell]({static}/images/Group-Text_Trader_01_blog-post-image.png)
 
 From the very beginning, our project set out to analyze research reports written by institutional experts in the stock market. The idea was simple but ambitious: could we measure whether professional analysts’ opinions were able to predict stock market and guide our investment?  
 
@@ -20,8 +20,8 @@ Our first step was data collection. After digging into the Eastmoney report cent
 
 - **undocumented API founded and pdf link discovered in F12 page of website**：
 
-![Picture showing Powell]({static}/images/API.png)
-![Picture showing Powell]({static}/images/pdf_link.png)
+![Picture showing Powell]({static}/images/Group-Text_Trader_01_blog-post-API.png)
+![Picture showing Powell]({static}/images/Group-Text_Trader_01_blog-post-pdf_link.png)
 
 
 We then built an automated downloader, targeting all CSI300 index stocks from 2017 to 2025. The dataset was massive, and downloading it took two full days. To avoid being blocked by the website, we implemented several web scraping tricks:
@@ -62,7 +62,7 @@ Before diving into complex NLP, we wanted to test whether the project idea was v
 
 The results were surprisingly strong. The MVP portfolio significantly outperformed the CSI300 benchmark, giving us confidence that the project was worth pursuing.
 
-![Picture showing Powell]({static}/images/output.png)
+![Picture showing Powell]({static}/images/Group-Text_Trader_01_blog-post-output.png)
 
 ## Facing the PDF Extraction Challenge
 

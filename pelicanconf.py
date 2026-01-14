@@ -1,7 +1,7 @@
 AUTHOR = 'MFIN7036 Students 2025'
 SITENAME = 'MFIN7036 Student Blog 2025'
 SITEURL = ''
-
+DEVELOP=True
 PATH = 'content'
 
 TIMEZONE = 'Asia/Hong_Kong'
