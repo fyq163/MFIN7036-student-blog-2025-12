@@ -314,3 +314,4 @@ cython_debug/
 #.idea/
 
 .vscode/settings.json
+pyproject.toml
