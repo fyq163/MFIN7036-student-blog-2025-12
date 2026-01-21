@@ -44,3 +44,7 @@ MARKDOWN = {
     },
     'output_format': 'html5',
 }
+PLUGINS = ['render_math']
+MATH_JAX = {
+    'auto_insert': True, 
+'tex_extensions': ['color.js', 'mhchem.js'],  }
