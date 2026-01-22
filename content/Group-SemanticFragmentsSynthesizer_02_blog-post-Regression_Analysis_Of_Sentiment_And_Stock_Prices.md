@@ -91,7 +91,7 @@ gm_df.to_csv("gm_result.csv", index=False)
 print(f"Processed {len(gm_df)} earnings events for General Motors")
 ```
 ### Result：
-![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_01_image-description1.png)
+![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_02_image-description1.png)
 
 ### 1.1 Calculating Market Reactions
 
@@ -127,7 +127,7 @@ reaction_result = pd.concat(reaction_data, ignore_index=True)
 reaction_result.to_csv('Car_Companies_Reaction.csv', index=False)
 ```
 ##Result：
-![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_01_image-description2.png)
+![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_02_image-description2.png)
 
 ### 1.2 Volatility Analysis
 
@@ -163,7 +163,7 @@ vol_result.to_csv('Car_Companies_Volatility.csv', index=False)
 This workflow systematically quantifies the market's price response and uncertainty in the five trading days following earnings calls, enabling further analysis of how earnings‑call sentiment influences short‑term stock behavior.
 
 ###Result：
-![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_01_image-description3.png)
+![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_02_image-description3.png)
 
 ### 2. Sentiment Analysis Methodology
 
@@ -279,7 +279,7 @@ VADER sentiment provides a general-purpose baseline measure of managerial tone. 
 
 To assess the overall behavior of VADER sentiment across earnings calls, we examine the distribution of VADER compound scores. This visualization provides a descriptive overview of sentiment dispersion and helps identify potential clustering or extreme values.
 
-![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_01_image-description4.png)
+![Picture showing Powell]({static}/images/Group-SemanticFragmentsSynthesizer_02_image-description4.png)
 
 The distribution shows that most VADER compound scores are concentrated in a narrow, mildly positive range, with few extreme observations. This pattern is consistent with the professional and institutional nature of earnings call communication and supports the interpretation of VADER as a baseline tone indicator rather than a measure of strong emotional expression.
 ### Key Takeaways from the Distribution
