@@ -27,7 +27,7 @@ The main steps and core functions are as follows:
 After extracting the text, we perform sentiment analysis on it. Long-text processing is one of the core advantages of Large Language Models (LLMs). However, each meeting minutes document contains a large volume of text (ranging from 50,000 to 80,000 characters), and the free quota provided by APIs of mainstream AI platforms is usually less than 2,000,000 characters, which can be exhausted quickly. In addition, the API call cost for services like ChatGPT is relatively high. Eventually, we selected the **Spark Lite Model API** of the Spark Large Model, which offers free and unlimited access, so we adopted it for text analysis.
 
 Before using this API, users must first obtain access credentials: register a real-name authenticated account on the [iFlytek Spark Large Model API platform](https://xinghuo.xfyun.cn/sparkapi), create a dedicated application, then select the Spark Lite model, where the token margin will show "Unlimited". Afterwards, obtain your own API key, which must be predefined before running the code, as indicated in the commented code below. For specific call configurations, refer to the Spark Lite documentation available on this platform, which includes Python call configuration examples.
-![TextWizards_02_sparkLite.png](/imgs/2026-01-19/JOj9VVwXiJ9THFMp.png)
+![Picture showing Powell]({static}/images/TextWizards_02_sparkLite.png)
 The specific calling code is as follows:
 ```python
 # encoding:UTF-8
@@ -195,10 +195,10 @@ for topic in topics:
         df.loc[denom == 0, d_col] = 0.5
         df.loc[denom == 0, h_col] = 0.5
 ```
-Here is one example of the output stacked diagram
-![TextWizards_02_image-sentiment_20250129.png](/imgs/2026-01-19/GzZcokN5ltJ1IkLw.png)
+Here is one example of the output stacked diagramimgs
+![Picture showing Powell]({static}/images/TextWizards_02_image-sentiment_20250129.png)
 Here uses 2024 as an example to visualize the impact of FOMC meeting minutes on the 10-Year Treasury Yield：
-![TextWizards_02_image-FOMC_2024_Yield.png](/imgs/2026-01-19/m730SqETnZ9XkR4t.png)
+![Picture showing Powell]({static}/images/TextWizards_02_image-FOMC_2024_Yield.png)
 
 ## 3.4 Word Cloud Analysis (Sentiment Feature Visualization)
 
@@ -250,19 +250,19 @@ def smart_phrase_extraction(text: str) -> Counter:
     return Counter(valid_phrases)
 ```
 For example, in 2021, the stance shifted from mostly dovish to increasingly hawkish. Early in the year, focus was on labor recovery and pandemic risks (“20210428”). As inflation persisted, hawkish concerns arose around supply constraints (“20211103”). By year-end, the Committee moved away from the “transitory” view, signaling inflation risks outweighed patience.
-![TextWizards_02_image-20210428.jpg](/imgs/2026-01-19/5agyKqqRs8SY6jUt.png)
-![TextWizards_02_image-20211103.jpg](/imgs/2026-01-19/smEfozgPebDiWyAE.png)
+![Picture showing Powell]({static}/images/TextWizards_02_image-20210428.jpg)
+![Picture showing Powell]({static}/images/TextWizards_02_image-20211103.jpg)
 
 # 4. Empirical Results & Analysis
 ## 4.1 Correlation Analysis
 The heatmap shows correlations between FOMC statement sentiment and policy actions:
-![TextWizards_02_image-correlation_heatmap_diff_1.png](/imgs/2026-01-19/CW7ztDgMwl2AEsji.png)
+![Picture showing Powell]({static}/images/TextWizards_02_image-correlation_heatmap_diff_1.png)
 **Dovish indicators have weak positive correlations with changes in the USD index, while Hawkish indicators tend to exhibit negative correlations with the USD index.**
 **Dovish indicators and hawkish indicators present mixed correlations with 10-year treasry yields.** 
 
 ## 4.2 Correlation Verification
 We further use P-value to tesify the correlation and draw heatmap.
-![TextWizards_02_image-pvalue_heatmap_diff.png](/imgs/2026-01-19/HbVNrVhmKloeTkl3.png)
+![Picture showing Powell]({static}/images/TextWizards_02_image-pvalue_heatmap_diff.png)
 From the P-value results, we can get the conclusions：
 **Overall, the p-value results suggest that most of the estimated correlations between FOMC sentiment measures and macroeconomic indicators are not statistically significant at conventional significance levels.** For the majority of sentiment–macro pairs, the observed correlations are likely driven by noise rather than systematic relationships. This implies that **short-term fluctuations in hawkish or dovish language intensity are not strongly or consistently associated with contemporaneous movements in the U.S. dollar index or the 10-year Treasury yield**.
 **Notably, the correlation between hawkish sentiment in the Staff Review of the Financial Situation and the 10-year Treasury yield is statistically signigicant (p = 0.02)**. This result suggests a potential link whereby increases in hawkish language within staff assessments of financial conditions are associated with short-term changes in 10-year interest rates.

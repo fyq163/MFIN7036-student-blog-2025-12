@@ -1,5 +1,5 @@
 ---
-Title: The Impact of Market Sentiment on Bitcoin Price Volatility (By Group "GPT Chatters")
+Title: A Research Plan on the Impact of Market Sentiment on Bitcoin Price Volatility (By Group "GPT Chatters")
 Date: 2026-01-10 19:57
 Category: Blog 1
 Tags: Group GPT Chatters
