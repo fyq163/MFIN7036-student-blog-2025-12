@@ -1,4 +1,14 @@
-# Web Scraping Financial News Sites with Python: Challenges and Solutions
+---
+Title: AstroNLP 01:  Web Scraping Financial News Sites with Python: Challenges and Solutions
+Date: 2026-01-10 13:14
+Category: Reflective Report
+tags: Group AstroNLP
+---
+
+By Group "AstroNLP"
+> >*The analysis shown in the blog is strictly from a financial and market impact perspective.*
+
+# AstroNLP 01:  Web Scraping Financial News Sites with Python: Challenges and Solutions
 
 ## Introduction: The Allure and Challenges of Financial Data Scraping
 

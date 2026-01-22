@@ -5,6 +5,10 @@ Category: Reflective Report
 Tags: Group AstroNLP
 ---
 
+By Group "AstroNLP"
+
+> >*The analysis shown in the blog is strictly from a financial and market impact perspective.*
+
 ## AstroNLP: Blog-Post-3
 
 In the third blog, which is very likely to be the final one, we will introduce the details about how we derive trading signals from news headlines and then implement trading strategies according to the signals. Here in the post, we will mainly focus on the procedure, while some specific results are to be mentioned in the report, making sure that two contents do not overlap a lot. Also, this blog is aimed for better understanding our code, which will not be illustrated detailly in the report due to the space limit.
@@ -193,7 +197,7 @@ fomc_dates = daily_fomc[daily_fomc['has_fomc_event'] == 1].sort_values('date')
 We mark the news headlines that contain specific keywords, so as for the geopolitical events:
 
 ```python
-geopolitical_keywords = r'(?i)(war|conflict|Ukraine|Russia|North Korea|Iran|Syria|Yemen|tariff|trade war|sanction|Brexit|tension|crisis)'
+geopolitical_keywords = r'(?i)(war|conflict|(Geopolitically sensitive place U)|(Geopolitically sensitive place R)|(Geopolitically sensitive place N)|(Geopolitically sensitive place I)|(Geopolitically sensitive place S)|(Geopolitically sensitive place Y)|tariff|trade war|sanction|Brexit|tension|crisis)'
 
 # Search keywords in news titles
 df_news['is_geopolitical'] = df_news['news_title'].str.contains(geopolitical_keywords, regex=True, na=False).astype(int)
