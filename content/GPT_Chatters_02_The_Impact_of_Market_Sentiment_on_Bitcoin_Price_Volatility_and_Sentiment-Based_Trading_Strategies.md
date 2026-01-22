@@ -1,5 +1,5 @@
 ---
-Title: The Impact of Market Sentiment on Bitcoin Price Volatility (by Group "GPT Chatters")
+Title: The Impact of Market Sentiment on Bitcoin Price Volatility and Sentiment-Based Trading Strategies (by Group "GPT Chatters")
 Date: 2026-01-21 13:21
 Category: Blog 2
 Tags: Group GPT Chatters
@@ -286,11 +286,11 @@ def pre_clean_vader(text):
 
 The Reddit daily average sentiment shows high volatility in early years (2010–2013) with extreme swings (-0.75 to +1.0), reflecting Bitcoin's speculative nature, then stabilizes mildly positive (+0.1 to +0.3) from 2014 onward, with sharp spikes during bull runs (e.g., 2017 ICO boom) and drops during crashes. Daily post count (blue bars) remained near zero until 2013, then exploded during major events with spikes aligning with sentiment extremes and realized volatility peaks, confirming Reddit as a powerful real-time indicator of retail crowd attention and emotional intensity driving Bitcoin volatility.
 
-![](images/GPT_Chatters_02_image.png)
+![]({static}/images/GPT_Chatters_02_image.png)
 
 Additionally, we find in the sample period (2020.01 - 2022.04), only few days' average sentiment is negative. This does not mean that our statistical and sentiment analysis methods are incorrect. Rather, it is because the participants in this community are themselves holders of Bitcoin. If the market is sluggish, our overall score can indeed promptly reflect the changes in investor sentiment. For instance, from the end of 2021 to the beginning of 2022, as Bitcoin plummeted from its peak of $69,000, the VADER sentiment score showed a significant downward trend.
 
-![](images/GPT_Chatters_02_image-1.png)
+![]({static}/images/GPT_Chatters_02_image-1.png)
 
 # Model Construction
 
@@ -299,7 +299,7 @@ Additionally, we find in the sample period (2020.01 - 2022.04), only few days' a
 ### Linear Model Introduction
 The regression formula is shown below:
 
-![Linear regression formula](images/GPT_Chatters_02_Regression_Formula.png)
+![Linear regression formula]({static}/images/GPT_Chatters_02_Regression_Formula.png)
 
 Since we aimed to examine the different effects of positive and negative sentiment, we split the sentiment score into two parts. When the score was positive, we defined it as positive sentiment and used its value directly. When the score was negative, we defined it as negative sentiment and used its absolute value. 
 
@@ -370,13 +370,13 @@ print("Mean benchmark RMSE:", rmse_mean)
 ```
 The regression result is shown below:
 
-![Regression result for Reddit](images/GPT_Chatters_02_Regression_Result_Reddit.png)
+![Regression result for Reddit]({static}/images/GPT_Chatters_02_Regression_Result_Reddit.png)
 
 ### Linear Regression for the sentiment score from Google News
 
 The regression code for Google News is very similar to the previous one; therefore, we do not include it again. We only present the regression results below:
 
-![Regression result for Google News](images/GPT_Chatters_02_Regression_Result_Google_News.png)
+![Regression result for Google News]({static}/images/GPT_Chatters_02_Regression_Result_Google_News.png)
 
 ### Regression Results Analysis
 
@@ -498,7 +498,7 @@ Our fine-tuned random forest regressor yields a RMSE of 0.0287449, which is lowe
 
 #### Performance Visualization
 
-![](images/GPT_Chatters_02_actual_vs_predicted.png)
+![]({static}/images/GPT_Chatters_02_actual_vs_predicted.png)
 
 According to the plot above, the Random Forest model learns a stable, sentiment-driven volatility baseline following the trend of volatility change. However, it systematically fails to capture sharp volatility spikes, indicating that sentiment alone explains gradual regime variation rather than extreme market shocks.
 
@@ -599,7 +599,7 @@ For comparison, we also defined a class that does not use the rolling window: `S
 
 As shown in this plot, the 30-day rolling-window XGBoost predictions closely follow the overall evolution of realized volatility. While the model still underestimates the magnitude of extreme volatility spikes, it consistently identifies the timing and direction of volatility rises. Compared to the performance of our best Random Forest Model, the XGBoost Model outperforms by better capturing short-term volatility dynamics and adapting to changing market regimes. XGBoost’s boosting structure enables it to learn more complex, nonlinear relationships between sentiment and volatility. Therefore, although both models struggle to some extent when it comes to predict extreme magnitudes, XGBoost provides more informative and timely volatility forecasts than the Random Forest baseline.
 
-![](images/GPT_Chatters_02_image-4.png)
+![]({static}/images/GPT_Chatters_02_image-4.png)
   
 #### Performance Metrics  
 
@@ -609,7 +609,7 @@ For our optimal rolling-window XGBoost, we observe a RMSE value of 0.0317 while 
 
 Due to the existence of several extreme outliers, it is particularly challenging to predict the exact magnitude of extreme Bitcoin volatility. Nevertheless, the model demonstrates a strong ability to identify when volatility is likely to rise sharply, exhibiting good directional and timing performance even when absolute errors are large. Besides, as reflected in our SHAP analysis below, a pronounced self-correlation in volatility is revealed, which closely aligns with that discovered in previous Random Forest Model. When added together as predictors, lagged historical volatility terms exhibit dominant effects in forecasting while lagged sentiment terms only contribute limited additional predictive information. In particular, three-day sentiment measures computed within a 30-day rolling window provide meaningful signals, although their overall contribution remains secondary compared to historical volatility. Moreover, negative sentiment appears to play a more influential role than positive sentiment, as reflected by its stronger impact in the SHAP value distributions.
 
-![](images/GPT_Chatters_02_image-5.png)
+![]({static}/images/GPT_Chatters_02_image-5.png)
 
 ## Machine Learning Model - Insights in Trading Strategy
 
@@ -623,17 +623,17 @@ We first built a **strictly symmetric pipeline** for both feature families. NLP 
 
 Using **technical indicators** only, the strategy already performed well. Excess return versus buy-and-hold was around 109%, performance was stable across cross-validation folds, and the equity curve was economically interpretable. At this point, the framework was already viable on its own.
 
-![](images/GPT_Chatters_02_p1.png)
+![]({static}/images/GPT_Chatters_02_p1.png)
 
 The real surprise came when **NLP sentiment was added on top of technical indicators**. Excess return jumped to over 215%, more than doubling relative to the technical-only model. The improvement was not driven by a single lucky fold or regime; it appeared consistently across validation splits.
 
-![](images/GPT_Chatters_02_p2.png)
+![]({static}/images/GPT_Chatters_02_p2.png)
 
 A natural concern is that this uplift is just feature proliferation. To check this, we examined the correlation structure between NLP features and technical indicators. The result was reassuring: correlations were generally low, suggesting that sentiment contributes information that is largely orthogonal to price-based signals.
 
 What ultimately convinced me was stability. Fold-level performance curves showed similar shapes and drawdown behavior, with no single period dominating returns. This makes it difficult to dismiss the result as overfitting or leakage.
 
-![](images/GPT_Chatters_02_p3.png)
+![]({static}/images/GPT_Chatters_02_p3.png)
 
 The takeaway is simple. Technical indicators provide a strong baseline, but they do not subsume sentiment. Instead, sentiment becomes more valuable once technical structure is accounted for. One summarizes **what the market has done**; the other reflects **how the market talks about it.**
 
